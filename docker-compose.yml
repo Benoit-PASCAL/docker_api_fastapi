@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "41000:41000"
+    volumes:
+      - .:/code
+      #    command: [ "python", "app/main.py" ]
+    command: [ "fastapi", "run", "app/main.py", "--port", "41000" ]
+
+#  nginx:
+#    image: nginx:latest
+#    ports:
+#      - "41000:80"
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf
+#    depends_on:
+#      - api
